@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Новичок — помощник первых 90 дней</title>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <div class="logo" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="8" r="3.4" stroke="#fff" stroke-width="2"/>
+        <path d="M4.5 20c1.4-3.4 4.2-5 7.5-5s6.1 1.6 7.5 5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="brand">
+      <h1>Новичок</h1>
+      <p>помощник первых 90 дней</p>
+    </div>
+    <nav class="switcher" aria-label="Выбор режима">
+      <button type="button" id="viewNewcomer" aria-pressed="true">Я новичок</button>
+      <button type="button" id="viewHr" aria-pressed="false">Я HR</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="stats" aria-label="Контекст задачи">
+    <!-- заполняется из данных -->
+  </section>
+
+  <!-- Режим новичка -->
+  <section id="screenNewcomer">
+    <div class="persona" id="personaCard"></div>
+    <div class="cols">
+      <div class="panel" id="planPanel">
+        <h3>Мой план на 90 дней</h3>
+        <p class="sub">Отмечайте сделанное, отметки сохраняются в этом браузере.</p>
+        <div id="planList"></div>
+      </div>
+      <div class="panel" id="askPanel">
+        <h3>Спросить про работу</h3>
+        <p class="sub">Ответы берутся из внутренних инструкций, источник указан под каждым.</p>
+        <form class="searchrow" id="askForm">
+          <input type="search" id="askInput" placeholder="Например: когда зарплата?" aria-label="Ваш вопрос" autocomplete="off">
+          <button class="btn" type="submit">Найти</button>
+        </form>
+        <div class="chips" id="chips" aria-label="Частые вопросы"></div>
+        <div class="results" id="results" aria-live="polite"></div>
+        <button class="linklike" type="button" id="showAll">Показать всю базу инструкций</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Режим HR -->
+  <section id="screenHr" hidden>
+    <div class="panel">
+      <h3>Все новички на испытательном сроке</h3>
+      <p class="sub">Статус считается по доле выполненных пунктов плана, которые уже должны быть закрыты к сегодняшнему дню. Нажмите на строку, чтобы открыть план человека.</p>
+      <table class="hrtable">
+        <thead>
+          <tr>
+            <th>Сотрудник</th>
+            <th>День</th>
+            <th>План</th>
+            <th>Наставник</th>
+            <th>Статус</th>
+          </tr>
+        </thead>
+        <tbody id="hrRows"></tbody>
+      </table>
+      <div class="legend">
+        <span><span class="badge ok">в графике</span> закрыто 85% и больше от планового</span>
+        <span><span class="badge warn">внимание</span> закрыто от 50% до 85%</span>
+        <span><span class="badge risk">риск</span> закрыто меньше половины</span>
+      </div>
+      <p class="hint">Логика простая намеренно: её легко объяснить руководителю и легко заменить на данные Битрикс24, когда появится доступ.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap footer">
+  <p>Учебные данные, все люди выдуманы. Прототип для тестового задания.</p>
+  <button class="reset" type="button" id="resetDemo">Сбросить отметки</button>
+</footer>
+
+<script type="module" src="./src/app.js"></script>
+</body>
+</html>
